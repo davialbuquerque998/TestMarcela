@@ -24,7 +24,7 @@ body {
     z-index: -1;
 }
 .parallax-bg {
-    background-image: url('/assets/images/background-banner.png');
+    background-image: url('../images/background-banner.png');
     height: 120%;
     width: 100%;
     position: absolute;
