@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Little Elephant - Adorable Children's Clothing</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+    <div class="parallax-container">
+        <div class="parallax-bg"></div>
+    </div>
+    <header>
+        <nav>
+            <div class="logo">My Little Elephant</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section id="home">
+            <h1>Welcome to My Little Elephant</h1>
+            <p>Adorable Clothes for Adorable Kids</p>
+            <button class="cta-button" id="ctaButton">Shop Now</button>
+        </section>
+        
+        <section id="about">
+            <h2>About Us</h2>
+            <p>At My Little Elephant, we believe in creating cute and comfortable clothing that your little ones will love. Our passion for children's fashion drives us to design playful patterns and use soft fabrics that make every child feel special.</p>
+        </section>
+        
+        <section id="products">
+            <h2>Our Products</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="/api/placeholder/200/200" alt="Elephant Print T-shirt">
+                    <h3>Elephant Print T-shirt</h3>
+                    <p>$19.99</p>
+                    <button class="cta-button">Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="/api/placeholder/200/200" alt="Rainbow Tutu Skirt">
+                    <h3>Rainbow Tutu Skirt</h3>
+                    <p>$24.99</p>
+                    <button class="cta-button">Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="/api/placeholder/200/200" alt="Cozy Pajama Set">
+                    <h3>Cozy Pajama Set</h3>
+                    <p>$29.99</p>
+                    <button class="cta-button">Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="/api/placeholder/200/200" alt="Adventure Jumpsuit">
+                    <h3>Adventure Jumpsuit</h3>
+                    <p>$34.99</p>
+                    <button class="cta-button">Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="/api/placeholder/200/200" alt="Unicorn Dress">
+                    <h3>Unicorn Dress</h3>
+                    <p>$39.99</p>
+                    <button class="cta-button">Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="/api/placeholder/200/200" alt="Dinosaur Hoodie">
+                    <h3>Dinosaur Hoodie</h3>
+                    <p>$32.99</p>
+                    <button class="cta-button">Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="/api/placeholder/200/200" alt="Flower Summer Hat">
+                    <h3>Flower Summer Hat</h3>
+                    <p>$14.99</p>
+                    <button class="cta-button">Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="/api/placeholder/200/200" alt="Superhero Cape Set">
+                    <h3>Superhero Cape Set</h3>
+                    <p>$27.99</p>
+                    <button class="cta-button">Add to Cart</button>
+                </div>
+            </div>
+        </section>
+        
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <form class="contact-form">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <input type="text" name="subject" placeholder="Subject" required>
+                <textarea name="message" placeholder="Your Message" required></textarea>
+                <button type="submit" class="cta-button">Send Message</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 My Little Elephant. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const navSlide = () => {
+            const burger = document.querySelector('.burger');
+            const nav = document.querySelector('.nav-links');
+            const navLinks = document.querySelectorAll('.nav-links li');
+
+            burger.addEventListener('click', () => {
+                nav.classList.toggle('nav-active');
+
+                navLinks.forEach((link, index) => {
+                    if (link.style.animation) {
+                        link.style.animation = '';
+                    } else {
+                        link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
+                    }
+                });
+
+                burger.classList.toggle('toggle');
+            });
+        }
+
+        navSlide();
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        document.getElementById('ctaButton').addEventListener('click', function() {
+            alert('Welcome to My Little Elephant! Our full collection is coming soon. Sign up for our newsletter to be notified when we launch!');
+        });
+
+        document.querySelectorAll('.product-card .cta-button').forEach(button => {
+            button.addEventListener('click', function() {
+                alert('Thank you for your interest! This item will be available soon.');
+            });
+        });
+
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
+        });
+
+        // Parallax effect
+        window.addEventListener('scroll', function() {
+            const parallax = document.querySelector('.parallax-bg');
+            let scrollPosition = window.pageYOffset;
+            parallax.style.transform = 'translateY(' + scrollPosition * 0.5 + 'px)';
+        });
+    </script>
+</body>
+</html>
