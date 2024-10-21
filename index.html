@@ -7,9 +7,6 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <div class="parallax-container">
-        <div class="parallax-bg"></div>
-    </div>
     <header>
         <nav>
             <div class="logo">My Little Elephant</div>
@@ -26,7 +23,11 @@
             </div>
         </nav>
     </header>
-    <main> 
+    <main>
+        <section id="home">
+            <h2>Home</h2>
+            <p>Welcome to My Little Elephant!</p>
+        </section>
         <section id="about">
             <h2>About Us</h2>
             <p>At My Little Elephant, we believe in creating cute and comfortable clothing that your little ones will love. Our passion for children's fashion drives us to design playful patterns and use soft fabrics that make every child feel special.</p>
@@ -60,25 +61,61 @@
                     <button class="cta-button">Add to Cart</button>
                 </div>
                 <div class="product-card">
-                    <img src="/api/placeholder/200/200" alt="Unicorn Dress">
+                    <img src="./images/pic5.jpg" alt="Unicorn Dress">
                     <h3>Unicorn Dress</h3>
                     <p>$39.99</p>
                     <button class="cta-button">Add to Cart</button>
                 </div>
                 <div class="product-card">
-                    <img src="/api/placeholder/200/200" alt="Dinosaur Hoodie">
+                    <img src="./images/pic6.jpg" alt="Dinosaur Hoodie">
                     <h3>Dinosaur Hoodie</h3>
                     <p>$32.99</p>
                     <button class="cta-button">Add to Cart</button>
                 </div>
                 <div class="product-card">
-                    <img src="/api/placeholder/200/200" alt="Flower Summer Hat">
+                    <img src="./images/pic7.jpg" alt="Flower Summer Hat">
                     <h3>Flower Summer Hat</h3>
                     <p>$14.99</p>
                     <button class="cta-button">Add to Cart</button>
                 </div>
                 <div class="product-card">
-                    <img src="/api/placeholder/200/200" alt="Superhero Cape Set">
+                    <img src="./images/pic8.jpg" alt="Superhero Cape Set">
+                    <h3>Superhero Cape Set</h3>
+                    <p>$27.99</p>
+                    <button class="cta-button">Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="./images/pic8.jpg" alt="Superhero Cape Set">
+                    <h3>Superhero Cape Set</h3>
+                    <p>$27.99</p>
+                    <button class="cta-button">Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="./images/pic8.jpg" alt="Superhero Cape Set">
+                    <h3>Superhero Cape Set</h3>
+                    <p>$27.99</p>
+                    <button class="cta-button">Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="./images/pic8.jpg" alt="Superhero Cape Set">
+                    <h3>Superhero Cape Set</h3>
+                    <p>$27.99</p>
+                    <button class="cta-button">Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="./images/pic8.jpg" alt="Superhero Cape Set">
+                    <h3>Superhero Cape Set</h3>
+                    <p>$27.99</p>
+                    <button class="cta-button">Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="./images/pic8.jpg" alt="Superhero Cape Set">
+                    <h3>Superhero Cape Set</h3>
+                    <p>$27.99</p>
+                    <button class="cta-button">Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="./images/pic8.jpg" alt="Superhero Cape Set">
                     <h3>Superhero Cape Set</h3>
                     <p>$27.99</p>
                     <button class="cta-button">Add to Cart</button>
@@ -101,61 +138,6 @@
         <p>&copy; 2024 My Little Elephant. All rights reserved.</p>
     </footer>
 
-    <script>
-        const navSlide = () => {
-            const burger = document.querySelector('.burger');
-            const nav = document.querySelector('.nav-links');
-            const navLinks = document.querySelectorAll('.nav-links li');
-
-            burger.addEventListener('click', () => {
-                nav.classList.toggle('nav-active');
-
-                navLinks.forEach((link, index) => {
-                    if (link.style.animation) {
-                        link.style.animation = '';
-                    } else {
-                        link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
-                    }
-                });
-
-                burger.classList.toggle('toggle');
-            });
-        }
-
-        navSlide();
-
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        document.getElementById('ctaButton').addEventListener('click', function() {
-            alert('Welcome to My Little Elephant! Our full collection is coming soon. Sign up for our newsletter to be notified when we launch!');
-        });
-
-        document.querySelectorAll('.product-card .cta-button').forEach(button => {
-            button.addEventListener('click', function() {
-                alert('Thank you for your interest! This item will be available soon.');
-            });
-        });
-
-        document.querySelector('.contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your message! We will get back to you soon.');
-            this.reset();
-        });
-
-        // Parallax effect
-        window.addEventListener('scroll', function() {
-            const parallax = document.querySelector('.parallax-bg');
-            let scrollPosition = window.pageYOffset;
-            parallax.style.transform = 'translateY(' + scrollPosition * 0.5 + 'px)';
-        });
-    </script>
+    <script src="js/script.js"></script>
 </body>
 </html>
