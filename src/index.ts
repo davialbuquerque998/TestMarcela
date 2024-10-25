@@ -6,6 +6,7 @@ import cors from "cors";
 import cookieParser from 'cookie-parser';
 import dotenv from "dotenv";
 import path from "path";
+import { defaultRouter } from "./routes/default.routes";
 dotenv.config();
 
 const PORT: number = parseInt(`${process.env.PORT}`) || 8080;
@@ -26,6 +27,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/products", productRouter);
 app.use("/admin", adminRouter);
+app.use("/", defaultRouter);
 
 app.listen(PORT, () => {
     console.log(`Server is listening on PORT ${PORT}`);
