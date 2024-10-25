@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,7 +34,7 @@
             top: 0;
             width: 100%;
             background-color: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             z-index: 1000;
             padding: 1rem;
         }
@@ -111,90 +112,130 @@
             background: white;
         }
 
+        .products h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--text-color);
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .products h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--mint);
+            border-radius: 2px;
+        }
+
         .products-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 2rem;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 1rem;
-    }
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
 
-    .product-card {
-        background: white;
-        border-radius: 10px;
-        overflow: hidden;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        transition: transform 0.3s;
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-    }
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
 
-    .product-card:hover {
-        transform: translateY(-5px);
-    }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+        }
 
-    .product-image-container {
-        position: relative;
-        width: 100%;
-        padding-top: 100%; /* Creates a perfect square */
-        overflow: hidden;
-        background-color: #f5f5f5; /* Light background for empty space */
-    }
+        .product-image-container {
+            position: relative;
+            width: 100%;
+            padding-top: 100%;
+            overflow: hidden;
+            background-color: #f8f8f8;
+        }
 
-    .product-image {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: contain; /* Changed from cover to contain */
-        padding: 0.5rem;
-    }
+        .product-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 1rem;
+            transition: transform 0.3s ease;
+        }
 
-    .product-info {
-        padding: 1.5rem;
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        flex-grow: 1;
-    }
+        .product-card:hover .product-image {
+            transform: scale(1.05);
+        }
 
-    .product-info h3 {
-        margin: 0;
-        font-size: 1.2rem;
-        color: var(--text-color);
-    }
+        .product-info {
+            padding: 1.8rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            flex-grow: 1;
+            text-align: center;
+        }
 
-    .product-info .price {
-        font-weight: bold;
-        color: var(--text-color);
-        margin: 0.5rem 0;
-    }
+        .product-info h3 {
+            margin: 0;
+            font-size: 1.4rem;
+            color: var(--text-color);
+            font-weight: 600;
+            line-height: 1.3;
+        }
 
-    .product-info .description {
-        font-size: 0.9rem;
-        color: #666;
-        flex-grow: 1;
-    }
-    .buy-btn {
-        width: 100%;
-        margin-top: auto;
-    }
+
+        .product-info .price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-color);
+            margin: 0.8rem 0;
+        }
+
+        .product-info .description {
+            font-size: 1rem;
+            color: #666;
+            flex-grow: 1;
+            line-height: 1.6;
+            margin: 0.5rem 0;
+        }
+
+        .buy-btn {
+            width: 100%;
+            margin-top: auto;
+        }
 
         .buy-btn {
             background: var(--mint);
-            color: white;
+            color: var(--text-color);
             border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
+            padding: 0.8rem 2rem;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
             cursor: pointer;
-            transition: background 0.3s;
+            transition: all 0.3s ease;
+            width: 80%;
+            margin: 0.5rem auto;
         }
 
         .buy-btn:hover {
             background: var(--lavender);
+            transform: translateY(-2px);
         }
 
         /* Contact Form */
@@ -212,7 +253,8 @@
             margin-bottom: 1rem;
         }
 
-        input, textarea {
+        input,
+        textarea {
             width: 100%;
             padding: 0.5rem;
             border: 1px solid #ddd;
@@ -245,6 +287,22 @@
 
         /* Mobile Styles */
         @media (max-width: 768px) {
+            .products h2 {
+                font-size: 2rem;
+            }
+
+            .product-info {
+                padding: 1.5rem;
+            }
+
+            .product-info h3 {
+                font-size: 1.2rem;
+            }
+
+            .product-info .price {
+                font-size: 1.3rem;
+            }
+
             .nav-menu {
                 display: none;
                 position: absolute;
@@ -265,8 +323,156 @@
                 display: block;
             }
         }
+
+
+        .about {
+        padding: 8rem 2rem 5rem;
+        background: linear-gradient(135deg, var(--lavender) 0%, white 100%);
+        min-height: 60vh;
+        display: flex;
+        align-items: center;
+    }
+
+    .about .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 20px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .about h2 {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+        color: var(--text-color);
+        position: relative;
+        padding-bottom: 1rem;
+    }
+
+    .about h2::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background: var(--mint);
+        border-radius: 2px;
+    }
+
+    .about-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        align-items: center;
+    }
+
+    .about-text p {
+        margin-bottom: 1.5rem;
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: var(--text-color);
+    }
+
+    .about-text p:first-of-type {
+        font-size: 1.3rem;
+        color: #444;
+        font-weight: 500;
+    }
+
+    .about-image {
+        position: relative;
+        padding-top: 100%;
+        background: var(--pink);
+        border-radius: 20px;
+        overflow: hidden;
+    }
+
+    .about-image img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.9;
+    }
+
+    .about-features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+    }
+
+    .feature-item {
+        text-align: center;
+        padding: 1.5rem;
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease;
+    }
+
+    .feature-item:hover {
+        transform: translateY(-5px);
+    }
+
+    .feature-item i {
+        font-size: 2rem;
+        color: var(--mint);
+        margin-bottom: 1rem;
+    }
+
+    .feature-item h3 {
+        font-size: 1.2rem;
+        color: var(--text-color);
+        margin-bottom: 0.5rem;
+    }
+
+    .feature-item p {
+        font-size: 0.9rem;
+        color: #666;
+    }
+
+    @media (max-width: 992px) {
+        .about-content {
+            grid-template-columns: 1fr;
+        }
+
+        .about-image {
+            order: -1;
+            padding-top: 60%;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .about {
+            padding: 6rem 1rem 3rem;
+        }
+
+        .about h2 {
+            font-size: 2rem;
+        }
+
+        .about-text p:first-of-type {
+            font-size: 1.2rem;
+        }
+
+        .about-text p {
+            font-size: 1rem;
+        }
+
+        .feature-item {
+            padding: 1rem;
+        }
+    }
     </style>
 </head>
+
 <body>
     <header>
         <nav class="nav-container">
@@ -291,33 +497,64 @@
         </div>
     </section>
 
-    <section id="about">
+    <section id="about" class="about">
         <div class="container">
             <h2>About Us</h2>
-            <p>Little Elephant brings joy to children's fashion with our curated collection of adorable and comfortable clothing.</p>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Little Elephant brings joy to children's fashion with our curated collection of adorable and comfortable clothing.</p>
+                    <p>At Little Elephant, we believe that every child deserves to feel special and comfortable in their clothes. Our carefully selected materials and attention to detail ensure that each piece meets our high standards of quality and style.</p>
+                    <p>We work closely with ethical manufacturers to create clothing that's not only beautiful but also durable and safe for your little ones. Our commitment to sustainability means we choose eco-friendly materials whenever possible.</p>
+                </div>
+                <div class="about-image">
+                    <img src="/images/boy.jpg" alt="Happy children wearing Little Elephant clothing">
+                </div>
+            </div>
+            <div class="about-features">
+                <div class="feature-item">
+                    <i class="fas fa-heart"></i>
+                    <h3>Quality First</h3>
+                    <p>Premium materials and careful craftsmanship in every piece</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-leaf"></i>
+                    <h3>Eco-Friendly</h3>
+                    <p>Sustainable practices and materials for a better future</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-smile"></i>
+                    <h3>Kid-Approved</h3>
+                    <p>Comfortable designs that children love to wear</p>
+                </div>
+            </div>
         </div>
     </section>
 
     <section id="products" class="products">
         <h2>Our Products</h2>
         <div class="products-grid">
-            <% if (products && products.length > 0) { %>
-                <% products.forEach(product => { %>
+            <% if (products && products.length> 0) { %>
+                <% products.forEach(product=> { %>
                     <div class="product-card">
                         <div class="product-image-container">
                             <img src="<%= product.imageUrl %>" alt="<%= product.name %>" class="product-image">
                         </div>
                         <div class="product-info">
-                            <h3><%= product.name %></h3>
-                            <p class="description"><%= product.description %></p>
-                            <p class="price">$<%= product.price %></p>
+                            <h3>
+                                <%= product.name %>
+                            </h3>
+                            <p class="description">
+                                <%= product.description %>
+                            </p>
+                            <p class="price">$<%= product.price %>
+                            </p>
                             <button class="buy-btn">Buy Now</button>
                         </div>
                     </div>
-                <% }); %>
-            <% } else { %>
-                <p>No products available at the moment.</p>
-            <% } %>
+                    <% }); %>
+                        <% } else { %>
+                            <p>No products available at the moment.</p>
+                            <% } %>
         </div>
     </section>
 
@@ -376,4 +613,5 @@
         });
     </script>
 </body>
+
 </html>
