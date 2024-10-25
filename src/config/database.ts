@@ -1,11 +1,13 @@
-import { MongoClient, Db } from 'mongodb';
+import { MongoClient, Db, ObjectId } from 'mongodb';
 import dotenv from "dotenv";
+import { Product } from '../types/product.type';
 dotenv.config();
 
 let singleton: any;
 
 const MONGO_URI:string = `${process.env.MONGO_URI}`;
 const MONGO_DATABASE:string = `${process.env.MONGO_DATABASE}`;
+const COLLECTION_NAME:string = `${process.env.COLLECTION_NAME}`;
 
 export async function connectDB():Promise<Db> {
     if(singleton) return singleton;
@@ -26,7 +28,40 @@ export async function connectDB():Promise<Db> {
 export async function getProducts() {
     const db = await connectDB();
 
-    const products =  db.collection("store-products").find().toArray();
+    const products =  db.collection(COLLECTION_NAME).find().toArray();
 
     return products;
+}
+
+
+export async function insertProduct(product:Product) {
+    const db = await connectDB();
+    const result = await db.collection(COLLECTION_NAME).insertOne(product);
+    return result;
+}
+
+export async function updateProduct(id:string, product:Product) {
+    const objectId = ObjectId.createFromHexString(id);
+    const db = await connectDB();
+
+    const result = await db.collection(COLLECTION_NAME).updateOne({_id:objectId}, {$set:product});
+
+    return result;
+}
+
+export async function deleteProduct(id:string) {
+    const objectId = ObjectId.createFromHexString(id);
+    const db = await connectDB();
+
+    const result = await db.collection(COLLECTION_NAME).deleteOne({_id:objectId});
+
+    return result;
+}
+
+export async function getProductById(id: string) {
+    const objectId = ObjectId.createFromHexString(id);
+    const db = await connectDB();
+    
+    const product = await db.collection(COLLECTION_NAME).findOne({ _id: objectId });
+    return product;
 }
