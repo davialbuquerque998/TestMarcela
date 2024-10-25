@@ -6,6 +6,7 @@ const productRouter = Router();
 productRouter.get("/", async (req:Request, res:Response) => {
     try {
         const products = await getProducts();
+        console.log(products);
         res.render("index", {products:products});
         return;
     } catch (error) {
