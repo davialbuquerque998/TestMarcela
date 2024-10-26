@@ -736,7 +736,9 @@
                             </p>
                             <p class="price">$<%= product.price %>
                             </p>
-                            <button class="buy-btn">Buy Now</button>
+                            <button class="buy-btn" data-name="<%= product.name %>"
+                                data-price="<%= product.price %>">Buy Now</button>
+
                         </div>
                     </div>
                     <% }); %>
@@ -786,7 +788,8 @@
     <footer>
         <div class="social-links">
             <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.instagram.com/littlelephantclothes_/" class="social-icon" target="_blank"><i
+                    class="fab fa-instagram"></i></a>
         </div>
         <p>Email: contact@littleelephant.com</p>
         <p>&copy; 2024 Little Elephant. All rights reserved.</p>
@@ -841,7 +844,7 @@
                 };
 
                 // Send the request
-                const response = await fetch('/contact', {  
+                const response = await fetch('/contact', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'  // Changed from x-www-form-urlencoded
@@ -884,6 +887,22 @@
                 submitBtn.disabled = false;
             }
         });
+
+        document.querySelectorAll('.buy-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                // Get product data
+                const productName = button.getAttribute('data-name');
+                const productPrice = button.getAttribute('data-price');
+
+                // WhatsApp link with message
+                const message = `Hello, I'm interested in buying the product: ${productName} for $${productPrice}.`;
+                const whatsappURL = `https://wa.me/5585988040374?text=${encodeURIComponent(message)}`;
+
+                // Redirect to WhatsApp
+                window.open(whatsappURL, '_blank');
+            });
+        });
+
 
 
     </script>
