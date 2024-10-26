@@ -7,7 +7,7 @@
     "dev": "npx tsx --watch src/index.ts",
     "build": "npx tsc",
     "start": "node dist/index.js",
-    "postbuild": "cp -r views dist/views"
+    "postbuild": "cp -r src/views dist/views && cp -r src/public dist/public"
   },
   "keywords": [],
   "author": "",
