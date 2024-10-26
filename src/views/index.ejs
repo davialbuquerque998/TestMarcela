@@ -241,16 +241,128 @@
         /* Contact Form */
         .contact {
             padding: 5rem 2rem;
-            background: var(--yellow);
+            background: linear-gradient(135deg, var(--yellow) 0%, #fff 100%);
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .contact h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--text-color);
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .contact h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--mint);
+            border-radius: 2px;
+        }
+
+        .contact-container {
+            max-width: 800px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 2.5rem;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
         }
 
         .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 1rem;
         }
 
+
         .form-group {
-            margin-bottom: 1rem;
+            margin-bottom: 0;
+        }
+
+        .form-group.full-width {
+            grid-column: 1/-1;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--text-color);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 2px solid #eee;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--mint);
+            box-shadow: 0 0 0 3px rgba(168, 230, 225, 0.2);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-container {
+            grid-column: 1 / -1;
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        .submit-btn {
+            background: var(--mint);
+            color: var(--text-color);
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .submit-btn:hover {
+            background: var(--lavender);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        @media (max-width: 768px) {
+            .contact-form {
+                grid-template-columns: 1fr;
+            }
+
+            .contact h2 {
+                font-size: 2rem;
+            }
+
+            .contact-container {
+                padding: 1.5rem;
+            }
         }
 
         input,
@@ -326,150 +438,150 @@
 
 
         .about {
-        padding: 8rem 2rem 5rem;
-        background: linear-gradient(135deg, var(--lavender) 0%, white 100%);
-        min-height: 60vh;
-        display: flex;
-        align-items: center;
-    }
-
-    .about .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 2rem;
-        background: rgba(255, 255, 255, 0.9);
-        border-radius: 20px;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-    }
-
-    .about h2 {
-        text-align: center;
-        font-size: 2.5rem;
-        margin-bottom: 2rem;
-        color: var(--text-color);
-        position: relative;
-        padding-bottom: 1rem;
-    }
-
-    .about h2::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 80px;
-        height: 3px;
-        background: var(--mint);
-        border-radius: 2px;
-    }
-
-    .about-content {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 3rem;
-        align-items: center;
-    }
-
-    .about-text p {
-        margin-bottom: 1.5rem;
-        font-size: 1.1rem;
-        line-height: 1.8;
-        color: var(--text-color);
-    }
-
-    .about-text p:first-of-type {
-        font-size: 1.3rem;
-        color: #444;
-        font-weight: 500;
-    }
-
-    .about-image {
-        position: relative;
-        padding-top: 100%;
-        background: var(--pink);
-        border-radius: 20px;
-        overflow: hidden;
-    }
-
-    .about-image img {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        opacity: 0.9;
-    }
-
-    .about-features {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 2rem;
-        margin-top: 3rem;
-    }
-
-    .feature-item {
-        text-align: center;
-        padding: 1.5rem;
-        background: white;
-        border-radius: 15px;
-        box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
-        transition: transform 0.3s ease;
-    }
-
-    .feature-item:hover {
-        transform: translateY(-5px);
-    }
-
-    .feature-item i {
-        font-size: 2rem;
-        color: var(--mint);
-        margin-bottom: 1rem;
-    }
-
-    .feature-item h3 {
-        font-size: 1.2rem;
-        color: var(--text-color);
-        margin-bottom: 0.5rem;
-    }
-
-    .feature-item p {
-        font-size: 0.9rem;
-        color: #666;
-    }
-
-    @media (max-width: 992px) {
-        .about-content {
-            grid-template-columns: 1fr;
+            padding: 8rem 2rem 5rem;
+            background: linear-gradient(135deg, var(--lavender) 0%, white 100%);
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
         }
 
-        .about-image {
-            order: -1;
-            padding-top: 60%;
-        }
-    }
-
-    @media (max-width: 768px) {
-        .about {
-            padding: 6rem 1rem 3rem;
+        .about .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
         }
 
         .about h2 {
-            font-size: 2rem;
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--text-color);
+            position: relative;
+            padding-bottom: 1rem;
         }
 
-        .about-text p:first-of-type {
-            font-size: 1.2rem;
+        .about h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--mint);
+            border-radius: 2px;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
         }
 
         .about-text p {
-            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-color);
+        }
+
+        .about-text p:first-of-type {
+            font-size: 1.3rem;
+            color: #444;
+            font-weight: 500;
+        }
+
+        .about-image {
+            position: relative;
+            padding-top: 100%;
+            background: var(--pink);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .about-image img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.9;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
         }
 
         .feature-item {
-            padding: 1rem;
+            text-align: center;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
         }
-    }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-item i {
+            font-size: 2rem;
+            color: var(--mint);
+            margin-bottom: 1rem;
+        }
+
+        .feature-item h3 {
+            font-size: 1.2rem;
+            color: var(--text-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-item p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        @media (max-width: 992px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                order: -1;
+                padding-top: 60%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .about {
+                padding: 6rem 1rem 3rem;
+            }
+
+            .about h2 {
+                font-size: 2rem;
+            }
+
+            .about-text p:first-of-type {
+                font-size: 1.2rem;
+            }
+
+            .about-text p {
+                font-size: 1rem;
+            }
+
+            .feature-item {
+                padding: 1rem;
+            }
+        }
     </style>
 </head>
 
@@ -502,9 +614,14 @@
             <h2>About Us</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p>Little Elephant brings joy to children's fashion with our curated collection of adorable and comfortable clothing.</p>
-                    <p>At Little Elephant, we believe that every child deserves to feel special and comfortable in their clothes. Our carefully selected materials and attention to detail ensure that each piece meets our high standards of quality and style.</p>
-                    <p>We work closely with ethical manufacturers to create clothing that's not only beautiful but also durable and safe for your little ones. Our commitment to sustainability means we choose eco-friendly materials whenever possible.</p>
+                    <p>Little Elephant brings joy to children's fashion with our curated collection of adorable and
+                        comfortable clothing.</p>
+                    <p>At Little Elephant, we believe that every child deserves to feel special and comfortable in their
+                        clothes. Our carefully selected materials and attention to detail ensure that each piece meets
+                        our high standards of quality and style.</p>
+                    <p>We work closely with ethical manufacturers to create clothing that's not only beautiful but also
+                        durable and safe for your little ones. Our commitment to sustainability means we choose
+                        eco-friendly materials whenever possible.</p>
                 </div>
                 <div class="about-image">
                     <img src="/images/boy.jpg" alt="Happy children wearing Little Elephant clothing">
@@ -560,22 +677,30 @@
 
     <section id="contact" class="contact">
         <h2>Contact Us</h2>
-        <form class="contact-form">
+        <div class="contact-container">
+          <form class="contact-form">
             <div class="form-group">
-                <input type="text" placeholder="Name" required>
+              <label for="name">Name</label>
+              <input type="text" id="name" placeholder="Your name" required>
             </div>
             <div class="form-group">
-                <input type="email" placeholder="Email" required>
+              <label for="email">Email</label>
+              <input type="email" id="email" placeholder="Your email" required>
             </div>
-            <div class="form-group">
-                <input type="text" placeholder="Subject" required>
+            <div class="form-group full-width">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" placeholder="What's this about?" required>
             </div>
-            <div class="form-group">
-                <textarea placeholder="Message" rows="5" required></textarea>
+            <div class="form-group full-width">
+              <label for="message">Message</label>
+              <textarea id="message" placeholder="Tell us more about your inquiry..." rows="5" required></textarea>
             </div>
-            <button type="submit" class="buy-btn">Send Message</button>
-        </form>
-    </section>
+            <div class="submit-container">
+              <button type="submit" class="submit-btn">Send Message</button>
+            </div>
+          </form>
+        </div>
+      </section>
 
     <footer>
         <div class="social-links">
