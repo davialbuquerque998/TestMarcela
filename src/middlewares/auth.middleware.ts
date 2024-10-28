@@ -5,13 +5,16 @@ export const authMiddleware = (req: Request, res: Response, next: NextFunction) 
     const token = req.cookies?.token;
 
     if (!token) {
-        return res.redirect('/admin/login');
+        res.redirect('/admin/login');
+        return;
     }
 
     if (!verifyToken(token)) {
         res.clearCookie('token');
-        return res.redirect('/admin/login');
+        res.redirect('/admin/login');
+        return;
     }
 
     next();
+    return;
 };
